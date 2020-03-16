@@ -5,12 +5,13 @@
     android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="205dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/penguin" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="205dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/avatar"
+        app:srcCompat="@drawable/penguin" />
 
         <LinearLayout
             android:layout_width="match_parent"
