@@ -1,7 +1,17 @@
 <resources>
-    <string name="app_name">RegisterDemo</string>
+    <string name="app_name">Contact</string>
     <string name="AccountNumber_zhCN">ID:</string>
     <string name="Password_zhCN">Password:</string>
     <string name="Register_zhCN">Register</string>
     <string name="avatar">avatar</string>
+    <string name="add_record">Add</string>
+    <string name="query_record">Query</string>
+    <string name="contact_name">Name:</string>
+    <string name="phone_number">Phone:</string>
+    <string name="modify_record">Modify</string>
+    <string name="delete_record">Delete</string>
+    <string name="AddSuccessToast">"Add Record "</string>
+    <string name="NoRecordToast">no record found</string>
+    <string name="UpdateSuccessToast">Successfully Updated</string>
+    <string name="DeleteSuccessToast">Successfully deleted</string>
 </resources>

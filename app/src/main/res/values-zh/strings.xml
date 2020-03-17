@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RegisterDemo</string>
+    <string name="app_name">通讯录</string>
     <string name="AccountNumber_zhCN">账号:</string>
     <string name="Password_zhCN">密码:</string>
     <string name="Register_zhCN">注册</string>
     <string name="avatar">头像</string>
+    <string name="add_record">添加</string>
+    <string name="query_record">查询</string>
+    <string name="contact_name">姓名:</string>
+    <string name="phone_number">电话:</string>
+    <string name="delete_record">删除</string>
+    <string name="modify_record">修改</string>
+    <string name="AddSuccessToast">"添加记录 "</string>
+    <string name="NoRecordToast">没有记录</string>
+    <string name="UpdateSuccessToast">数据更新成功</string>
+    <string name="DeleteSuccessToast">数据删除成功</string>
 </resources>
