@@ -63,10 +63,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,R.string.NoRecordToast,Toast.LENGTH_SHORT).show();
                 }else {
                     cursor.moveToFirst();
-                    contact_content.setText("NAME: "+cursor.getString(1)+" TEL: "+cursor.getString(2)+"\n");
+                    contact_content.setText(getResources().getString(R.string.contact_name)+" "+cursor.getString(1)
+                            +"\t"+getResources().getString(R.string.phone_number)+" "+cursor.getString(2)+"\n");
                 }
                 while (cursor.moveToNext()){
-                    contact_content.append("NAME: "+cursor.getString(1)+" TEL: "+cursor.getString(2)+"\n");
+                    contact_content.append(getResources().getString(R.string.contact_name)+" "+cursor.getString(1)
+                            +"\t"+getResources().getString(R.string.phone_number)+" "+cursor.getString(2)+"\n");
                 }
                 cursor.close();
                 db.close();

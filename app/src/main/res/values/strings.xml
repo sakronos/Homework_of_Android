@@ -7,7 +7,7 @@
     <string name="add_record">Add</string>
     <string name="query_record">Query</string>
     <string name="contact_name">Name:</string>
-    <string name="phone_number">Phone:</string>
+    <string name="phone_number">Number:</string>
     <string name="modify_record">Modify</string>
     <string name="delete_record">Delete</string>
     <string name="AddSuccessToast">"Add Record "</string>
