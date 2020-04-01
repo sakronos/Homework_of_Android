@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setWhen(System.currentTimeMillis())
                         .setSmallIcon(R.drawable.ic_launcher_foreground)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.penguin))
+                        .setStyle(new NotificationCompat.BigPictureStyle().bigPicture
+                                (BitmapFactory.decodeResource(getResources(),R.drawable.penguin)))
                         .setContentIntent(pendingIntent)
                         .setAutoCancel(true)
                         .build();
