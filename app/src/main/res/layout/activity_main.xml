@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -11,7 +11,15 @@
         android:id="@+id/send_notice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Notice" />
+        android:text="Click" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_below="@+id/send_notice"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/akkarin" />
 
 
-</LinearLayout>
+</RelativeLayout>

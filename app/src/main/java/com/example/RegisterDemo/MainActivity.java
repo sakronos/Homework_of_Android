@@ -17,52 +17,57 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private String channelId = "1";
-    private String channelName = "Button";
-
+    private ImageView imageView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.send_notice).setOnClickListener(this);
+        imageView = (ImageView)findViewById(R.id.imageView);
 
+    }
+
+    private class UpdateImageView extends AsyncTask<Integer, Integer, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(Integer... integers) {
+            publishProgress(0);
+            return true;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            imageView.setImageDrawable(getResources().getDrawable(R.drawable.penguin,null));
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            //imageView.clearColorFilter();
+            //imageView.setImageDrawable(getResources().getDrawable(R.drawable.penguin,null));
+            super.onPostExecute(aBoolean);
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.send_notice:
-                Intent intent = new Intent(this,NotificationActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
-                NotificationManager manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-                @SuppressLint("WrongConstant")
-                NotificationChannel notificationChannel = new NotificationChannel(channelId,channelName,NotificationManager.IMPORTANCE_HIGH);
-                manager.createNotificationChannel(notificationChannel);
-                Notification notification = new NotificationCompat.Builder(this,channelId)
-                        .setContentTitle("TITLE")
-                        .setContentText("This is content text")
-                        .setWhen(System.currentTimeMillis())
-                        .setSmallIcon(R.drawable.ic_launcher_foreground)
-                        .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.penguin))
-                        .setStyle(new NotificationCompat.BigPictureStyle().bigPicture
-                                (BitmapFactory.decodeResource(getResources(),R.drawable.penguin)))
-                        .setContentIntent(pendingIntent)
-                        .setAutoCancel(true)
-                        .build();
-                assert manager != null;
-                manager.notify(1,notification);
-                Toast.makeText(this,"Notice",Toast.LENGTH_SHORT).show();
+                new UpdateImageView().execute();
+                Toast.makeText(this,"点击",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
