@@ -3,6 +3,8 @@ package com.example.RegisterDemo;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -25,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,54 +37,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Fruit> fruitList = new ArrayList<>();
+    private List<Msg> msgList = new ArrayList<>();
+    private EditText inputText;
+    private Button send;
+    private RecyclerView msgRecyclerView;
+    private MsgAdapter adapter;
+
+    private void initMsgs(){
+        Msg msg1 = new Msg("Hello guy.",Msg.TYPE_RECEIVER);
+        msgList.add(msg1);
+        Msg msg2 = new Msg("Hello. Who is that?",Msg.TYPE_SENT);
+        msgList.add(msg2);
+        Msg msg3 = new Msg("This is Tom Nook. Nice talking to you.",Msg.TYPE_RECEIVER);
+        msgList.add(msg3);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initFruits();
-        FruitAdapter adapter = new FruitAdapter(MainActivity.this,R.layout.fruit_item,fruitList);
+        initMsgs();
+        inputText = (EditText) findViewById(R.id.input_text);
+        send = (Button) findViewById(R.id.send);
+        msgRecyclerView = (RecyclerView)findViewById(R.id.msg_recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        msgRecyclerView.setLayoutManager(layoutManager);
+        adapter = new MsgAdapter(msgList);
+        msgRecyclerView.setAdapter(adapter);
+        send.setOnClickListener(new View.OnClickListener(){
 
-        ListView listView = (ListView) findViewById(R.id.list_view);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Fruit fruit = fruitList.get(position);
-                Toast.makeText(MainActivity.this,fruit.getName(),Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                String content = inputText.getText().toString();
+                if (!"".equals(content)){
+                    Msg msg = new Msg(content,Msg.TYPE_SENT);
+                    msgList.add(msg);
+                    adapter.notifyItemInserted(msgList.size()-1);
+                    msgRecyclerView.scrollToPosition(msgList.size()-1);
+                    inputText.setText("");
+                }
             }
         });
 
 
+
+
+
     }
 
-    private void initFruits(){
-        for (int i = 0; i<2; i++){
-            Fruit apple = new Fruit ("Apple", R.drawable.apple_pic);
-            fruitList.add(apple);
-            Fruit avocado = new Fruit("Avocado",R.drawable.avocado_pic);
-            fruitList.add(avocado);
-            Fruit banana = new Fruit ("Banana", R.drawable.banana_pic);
-            fruitList.add( banana);
-            Fruit orange = new Fruit ( "Orange", R.drawable.orange_pic) ;
-            fruitList.add(orange);
-            Fruit watermelon = new Fruit ( "Watermelon", R.drawable.watermelon_pic);
-            fruitList.add(watermelon);
-            Fruit pear = new Fruit("Pear", R.drawable.pear_pic);
-            fruitList.add(pear);
-            Fruit grape = new Fruit("Grape", R.drawable.grape_pic);
-            fruitList.add(grape);
-            Fruit pineapple = new Fruit("Pineapple" , R.drawable.pineapple_pic);
-            fruitList.add( pineapple);
-            Fruit strawberry = new Fruit("Strawberry", R.drawable.strawberry_pic);
-            fruitList.add(strawberry);
-            Fruit cherry = new Fruit ("Cherry", R.drawable.cherry_pic);
-            fruitList.add(cherry);
-            Fruit mango = new Fruit("Mango",R.drawable.mango_pic);
-            fruitList.add(mango) ;
-        }
-    }
+
 
 
 
