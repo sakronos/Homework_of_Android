@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         msgList.add(msg2);
         Msg msg3 = new Msg("This is Tom Nook. Nice talking to you.",Msg.TYPE_RECEIVER);
         msgList.add(msg3);
+        Msg msg4 = new Msg(R.drawable.apple_pic,Msg.TYPE_IMG_SENT);
+        msgList.add(msg4);
+        Msg msg5 = new Msg(R.drawable.cherry_pic,Msg.TYPE_IMG_RECEIVED);
+        msgList.add(msg5);
     }
 
     @Override

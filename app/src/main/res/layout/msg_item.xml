@@ -24,6 +24,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/left_img_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:background="@drawable/message_left"
+        >
+
+        <ImageView
+            android:id="@+id/left_img"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/right_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,6 +58,26 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:textColor="#000"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/right_img_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@drawable/message_right"
+        >
+
+        <ImageView
+            android:id="@+id/right_img"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
 
 
     </LinearLayout>
