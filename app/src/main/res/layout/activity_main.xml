@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#E6E6E6"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/msg_recycler_view"
-        android:layout_height="0dp"
+    <Button
+        android:id="@+id/create_database"
         android:layout_width="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Create database"
         />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/add_data"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="Add data"
+        />
 
-        <EditText
-            android:id="@+id/input_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Type something here"
-            android:maxLines="2" />
+    <Button
+        android:id="@+id/update_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update data"
+        />
 
-        <Button
-            android:id="@+id/send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/delete_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete data"
+        />
+
+
+
+    <Button
+        android:id="@+id/query_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Query data"
+        />
+
+    <Button
+        android:id="@+id/fluent_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fluent Query"
+        />
+
+    <TextView
+        android:id="@+id/QueryResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
 </LinearLayout>
