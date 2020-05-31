@@ -41,12 +41,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Book book = new Book();
-                book.setName("线代");
-                book.setAuthor("同济");
-                book.setPages(200);
-                book.setPrice(4);
-                book.setPress("高等教育");
+                book.setName("Java程序设计");
+                book.setAuthor("清华");
+                book.setPages(650);
+                book.setPrice(9.5);
+                book.setPress("清华");
                 book.save();
+                Book book1 = new Book();
+                book1.setName("C语言程序设计");
+                book1.setAuthor("清华");
+                book1.setPages(450);
+                book1.setPrice(5);
+                book1.setPress("清华");
+                book1.save();
             }
         });
 
@@ -59,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 //book.setName("The Lost Symbol");
                 //book.setAuthor("Dan Brown");
 
-                book.setPrice(19.95);
+                book.setPrice(20.95);
                 book.setPress("Anchor");
                 book.updateAll("name=? and author=?","The Da Vinci Code","Dan Brown");
 
@@ -82,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 StringBuilder text = new StringBuilder();
                 List<Book> books = LitePal.findAll(Book.class);
                 for (Book book:books){
-                    text.append("Name:").append(book.getName()).append("\n").append("Author:").append(book.getAuthor()).append("\n").append("Pages:").append(book.getPages()).append("\n").append("Price:").append(book.getPrice()).append("\n").append("Press:").append(book.getPress()).append("\n\n");
+                    text.append("Name:").append(book.getName()).append(" ").append("Author:").append(book.getAuthor()).append(" ").append("Pages:").append(book.getPages()).append("\n").append("Price:").append(book.getPrice()).append(" ").append("Press:").append(book.getPress()).append("\n\n");
                 }
                 textView.setText(text.toString());
             }
@@ -97,13 +104,13 @@ public class MainActivity extends AppCompatActivity {
                 List<Book> books = LitePal.select("name","author","pages")
                         .where("pages >?","400")
                         .order("pages")
-                        .limit(10)
-                        //.offset(10)       //偏移量
+                        .limit(2)
+                        .offset(2)       //偏移量
                         .find(Book.class);
                 for (Book book:books){
                     text.append("Name:").append(book.getName())
-                            .append("\n").append("Author:").append(book.getAuthor())
-                            .append("\n").append("Pages:").append(book.getPages()).append("\n\n");
+                            .append(" ").append("Author:").append(book.getAuthor())
+                            .append(" ").append("Pages:").append(book.getPages()).append("\n\n");
                 }
                 textView.setText(text.toString());
             }
