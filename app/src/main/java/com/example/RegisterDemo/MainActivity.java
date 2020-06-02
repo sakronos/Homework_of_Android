@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.tv_play:
                 if (file.exists()&& file.length()>0){
-                    myBinder.play(path);
+                    myBinder.play(path,this);
                 }else{
                     Toast.makeText(this,"音频文件未找到",Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.tv_pause:
-                myBinder.pause();
+                myBinder.pause(this);
                 break;
             default:
                 break;
